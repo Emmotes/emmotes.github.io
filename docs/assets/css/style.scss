@@ -1,0 +1,36 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+header {
+	display: none;
+}
+.wrapper {
+	max-width: 860px;
+}
+section {
+	max-width: 100%;
+}
+h1 {
+	font-size: 30px;
+}
+h2 {
+	font-size: 22px;
+}
+h1,h2,h3 {
+	line-height: 1.5em;
+}
+h4,h5 {
+	line-height: 1.3em;
+}
+h6 {
+	line-height: 1.1em;
+}
+code{
+    padding: 0px;
+    border-radius: 0px;
+}
+section #title .credits.right {
+	text-align: right;
+}
