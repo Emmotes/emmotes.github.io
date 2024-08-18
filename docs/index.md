@@ -14,6 +14,10 @@ An index of my github sites and repositories.
 ## Repositories
 
 * [IC Addons](https://github.com/Emmotes/IC_Addons)
+  * [EGS Overlay Swatter](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_EGSOverlaySwatter_Extra)
+  * [Game Settings Fix](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_GameSettingsFix_Extra)
+  * [No Modron Adventuring](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_NoModronAdventuring_Extra)
+  * [Potion Sustain](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_PotionSustain_Extra)
 
 [Back to Top](#top)
 
