@@ -31,6 +31,12 @@ code{
     padding: 0px;
     border-radius: 0px;
 }
+section #title {
+	border: 0;
+	outline: none;
+	margin: 0 0 10px 0;
+	padding: 0 0 5px 0;
+}
 section #title .credits.right {
 	text-align: right;
 }
