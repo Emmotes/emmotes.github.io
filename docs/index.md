@@ -1,7 +1,3 @@
-# Index
-
-An index of various stuff that I've made.
-
 ## Websites
 
 * [Encyclopedia Modronica (Modron Library)](https://emmotes.github.io/ic_modron_library/)
