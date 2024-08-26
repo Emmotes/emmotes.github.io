@@ -1,11 +1,11 @@
 ## Websites
 
 * [Encyclopedia Modronica (Modron Library)](https://emmotes.github.io/ic_modron_library/)
-* [Scripting Routes](https://emmotes.github.io/ic_scripting_routes/)
 * [Rosters](https://emmotes.github.io/ic_rosters/)
-* [Wiki](https://emmotes.github.io/ic_wiki/)
-* [Spoilers](https://emmotes.github.io/ic_spoilers/)
+* [Scripting Routes](https://emmotes.github.io/ic_scripting_routes/)
 * [Server Calls](https://emmotes.github.io/ic_servercalls/)
+* [Spoilers](https://emmotes.github.io/ic_spoilers/)
+* [Wiki](https://emmotes.github.io/ic_wiki/)
 
 ## Repositories
 
