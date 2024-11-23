@@ -10,8 +10,10 @@
 ## Repositories
 
 * [IC Addons](https://github.com/Emmotes/IC_Addons)
+  * [Claim Daily Platinum](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_ClaimDailyPlatinum_Extra)
   * [EGS Overlay Swatter](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_EGSOverlaySwatter_Extra)
   * [Game Settings Fix](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_GameSettingsFix_Extra)
+  * [Hide Default Profile](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_BrivGemFarm_HideDefaultProfile_Extra)
   * [No Modron Adventuring](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_NoModronAdventuring_Extra)
   * [Potion Sustain](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_PotionSustain_Extra)
 
