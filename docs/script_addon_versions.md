@@ -1,8 +1,5 @@
 {::nomarkdown}
 <div id="content">
-<h2>3rd Party Addon Versions</h2>
-<p>Currently only includes Emmotes and imp444 and Pneumatus' repos:</p>
-<br>
 </div>
 <script type="module">
 import { Octokit } from "https://esm.sh/@octokit/core";
@@ -45,6 +42,7 @@ async function init() {
 	}
 	let prefix = `<h2>3rd Party Addon Versions</h2><p>Currently only includes the repos belonging to ${names}</p><br>`;
 	let c = `<table><tr><th>Owner</th><th>Addon</th><th>Version</th></tr>`;
+	ele.innerHTML = prefix + c + `</table>`;
 	try {
 		for (let owner in repos) {
 			let repo = repos[owner];
