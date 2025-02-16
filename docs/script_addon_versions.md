@@ -38,7 +38,7 @@ async function init() {
 	let first = true;
 	for (let owner in repos) {
 		if (first)
-			first = true;
+			first = false;
 		else
 			names += ` / `;
 		names += repos[owner].name;
