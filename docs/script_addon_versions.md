@@ -10,7 +10,12 @@ const repos = {
 	"Emmotes": {
 		"name": "Emmote",
 		"repo": "IC_Addons",
-		"path": "/IC_Addons"
+		"path": "IC_Addons"
+	},
+	"Guhndahb": {
+		"name": "Guhndahb",
+		"repo": "IC_Addons",
+		"path": ""
 	},
 	"imp444": {
 		"name": "ImpEGamer",
@@ -65,7 +70,7 @@ async function init() {
 }
 
 async function getFileList(owner,repo,path) {
-	return await octokit.request('GET /repos/{owner}/{repo}/contents{path}', {
+	return await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
 		owner: owner,
 		repo: repo,
 		path: path,
