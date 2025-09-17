@@ -16,7 +16,6 @@
   * [Hide Default Profile](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_BrivGemFarm_HideDefaultProfile_Extra)
   * [HybridTurboStacking Preferred Enemies](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_HybridTurboStacking_PreferredEnemies_Extra)
   * [No Modron Adventuring](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_NoModronAdventuring_Extra)
-  * [Potion Sustain](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_PotionSustain_Extra)
 
 ## Google Docs / Spreadsheets
 
