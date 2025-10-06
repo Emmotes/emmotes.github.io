@@ -21,7 +21,8 @@
 
 * Calculators
   * [Game Speed Effects Calculator](https://docs.google.com/spreadsheets/d/1UzMouizR2zTCeT7B_0XI58bCIQkhPyVSG2DFAuYcjPo/edit?usp=sharing)
-  * [Potion Sustain Calculator](https://docs.google.com/spreadsheets/d/1kY72g6l1e1vRPvFxi3u9CwSPdETqyogYvffaVe_imaU/edit?usp=sharing)
+  * [Potion Sustain Calculator v3](https://docs.google.com/spreadsheets/d/1kY72g6l1e1vRPvFxi3u9CwSPdETqyogYvffaVe_imaU/edit?usp=sharing)
+  * [Potion Sustain Calculator v4](https://docs.google.com/spreadsheets/d/10leHpeZXnUHMhaG-QPFgSprVCXrWki2yJkoEYkHombo/edit?usp=sharing)
   * [RNG Waiting Room Testing Data](https://docs.google.com/spreadsheets/d/1tly36_GRwxl3IMWzo2wqH78bqBhCZ0DOZnB84hYrT7c/edit?usp=sharing)
   * [Time Gate Favour Conversion Calculator](https://docs.google.com/spreadsheets/d/1IqBIaCoZY-nLMMB7Wf7RTxoPn72ISuRGkcc86JcTAEI/edit?usp=sharing)
   * [Trials of Mount Tiamat Health and Damage Calculator](https://docs.google.com/spreadsheets/d/1Rn2M-iyUVDTD05opfC_fD2ME1XaEkTZ5iMI351rAm4k/edit?usp=sharing)
