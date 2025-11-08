@@ -10,6 +10,7 @@
 ## Repositories
 
 * [IC Addons](https://github.com/Emmotes/IC_Addons)
+  * [AdvancedSettings Preset Routes](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_Advanced_PresetRoutes_Extra)
   * [Claim Daily Platinum](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_ClaimDailyPlatinum_Extra)
   * [EGS Overlay Swatter](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_EGSOverlaySwatter_Extra)
   * [Game Settings Fix](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_GameSettingsFix_Extra)
