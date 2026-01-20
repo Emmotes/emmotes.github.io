@@ -17,6 +17,11 @@
   * [Hide Default Profile](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_BrivGemFarm_HideDefaultProfile_Extra)
   * [HybridTurboStacking Preferred Enemies](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_HybridTurboStacking_PreferredEnemies_Extra)
   * [No Modron Adventuring](https://github.com/Emmotes/IC_Addons/tree/main/IC_Addons/IC_NoModronAdventuring_Extra)
+* [IC Scripting Imports](https://github.com/Emmotes/ic_scripting_imports)
+  * [Current Imports](https://github.com/Emmotes/ic_scripting_imports/tree/main/All%20Imports)
+  * [Latest EGS Imports](https://github.com/Emmotes/ic_scripting_imports/tree/main/Latest_EGS)
+  * [Latest Steam Imports](https://github.com/Emmotes/ic_scripting_imports/tree/main/Latest_Steam)
+  * [Legacy Imports](https://github.com/Emmotes/ic_scripting_imports/tree/main/Legacy%20Imports)
 
 ## Google Docs / Spreadsheets
 
