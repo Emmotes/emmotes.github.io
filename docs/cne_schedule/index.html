@@ -65,6 +65,20 @@
 				grid-template-columns: 1fr 115px 1fr;
 				gap: 10px;
 			}
+			p {
+				text-wrap-style: balance;
+				width: 60%;
+			}
+			code {
+				font-size: 1.1em;
+				background-color: var(--ChineseBlack);
+				padding: 3px 6px;
+				margin: 1px;
+				border-radius: 6px;
+			}
+			a { color: var(--TangerineYellow); }
+			a:hover { color: var(--Flavescent); }
+			a:active { color: var(--Carrot); }
 		</style>
 	</head>
 	<body>
@@ -88,13 +102,29 @@
 				</div>
 			</div>
 			<div>&nbsp;</div>
-			<div class="f fc" style="width:fit-content">
-				<h3>Features:</h3>
+			<div class="f fc" style="width:80%">
+				<h3 style="margin-block-end:unset">Features:</h3>
 				<ul>
 					<li>Detects time ranges and replaces them with Discord timestamps.</li>
 					<li>Detects date lines and bolds them.</li>
 					<li>Wraps URLs in angle brackets to stop Discord embedding them.</li>
 				</ul>
+				<p style="margin-block-end:unset">If a time fails to convert, try one of these websites to make it manually:</p>
+				<ul style="margin-block-end:unset">
+					<li><a href="https://r.3v.fi/discord-timestamps/" target="_blank" rel="noopener noreferrer">https://r.3v.fi/discord-timestamps/</a></li>
+					<li><a href="https://timestamp.dabric.xyz/" target="_blank" rel="noopener noreferrer">https://timestamp.dabric.xyz/</a></li>
+					<li><a href="https://www.epochconverter.com/" target="_blank" rel="noopener noreferrer">https://www.epochconverter.com/</a></li>
+				</ul>
+				<p style="margin-block-end:unset">Alternatively you can type <code>@time</code> in Discord and then press <code>Tab</code>. You can then type out a time and select the appropriate format.<br><br>
+					<em>Note that this method does not do short-time <code>HH:MM</code> for any day other than the present day. So to get that:</em></p>
+				<ol>
+					<li>Pick any date format for the date and time you want.</li>
+					<li>Reveal the code by clicking the created timestamp and pressing the <code>&lt;&gt;</code> symbol.</li>
+					<li>Change the very last letter to <code>t</code>.</li>
+					<li>Delete the <code>`</code> symbols before and after the code to turn it back into a timestamp.</li>
+				</ol>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
 			</div>
 
 			<script src="scripts/schedule.js?v=1.002"></script>
