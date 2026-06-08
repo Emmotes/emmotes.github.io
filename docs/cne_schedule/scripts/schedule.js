@@ -1,4 +1,4 @@
-const v = 1.001; // prettier-ignore
+const v = 1.002; // prettier-ignore
 const monthMap = {
 	January: 0, February: 1, March: 2, April: 3,
 	May: 4, June: 5, July: 6, August: 7,
@@ -8,9 +8,16 @@ const timeRangeRegex =
 	/(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/gi;
 
 function timestamp() {
-	const txt = document.getElementById("schedule");
+	const txt = document.getElementById("source");
 	const converted = convertScheduleToDiscordTimestamps(txt.value);
-	txt.value = converted;
+	document.getElementById("result").value = converted;
+}
+
+function copyResult() {
+	const resultBox = document.getElementById("result");
+	resultBox.select();
+	resultBox.setSelectionRange(0, 99999);
+	document.execCommand("copy");
 }
 
 function convertScheduleToDiscordTimestamps(scheduleText) {
@@ -115,21 +122,24 @@ function timeToUnix(monthStr, day, year, hour, minute) {
 }
 
 function wrapUrls(text) {
-	return text.replace(/\bhttps?:\/\/[^\s<>]+/gi, (url, offset, string) => {
+	return text.replace(/\bhttps?:\/\/[^\s<>]+/gi, (rawUrl, offset, string) => {
 		const before = offset > 0 ? string[offset - 1] : "";
-		const after =
-			offset + url.length < string.length ?
-				string[offset + url.length]
-			:	"";
+		const after = offset + rawUrl.length < string.length ? string[offset + rawUrl.length] : "";
 
-		if (url.startsWith("<") && url.endsWith(">")) return url;
+		// If already wrapped like <https://...>, don't change it.
+		if (before === "<" && after === ">") return rawUrl;
 
-		if (before === "(" && url.endsWith(")")) {
-			const actualUrl = url.slice(0, -1);
-			return `<${actualUrl}>${url.slice(-1)}${after}`.trim();
+		// Strip trailing punctuation from the matched URL (e.g. ')', '.', ',', etc.)
+		// and append it after the angle-bracket wrapper. This makes
+		// markdown links like (https://...) become (<https://...>).
+		let url = rawUrl;
+		let trailing = "";
+		while (url.length && /[)\]\.,;:!?]/.test(url[url.length - 1])) {
+			trailing = url[url.length - 1] + trailing;
+			url = url.slice(0, -1);
 		}
 
-		return `<${url}>`;
+		return `<${url}>` + trailing;
 	});
 }
 

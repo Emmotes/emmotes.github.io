@@ -12,40 +12,92 @@
 				font-family: "OpenSansSemibold", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 				color: var(--LanguidLavender);
 				background-color: var(--Charade);
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
 			}
 			input[type="button"] {
+				width: 115px;
 				background-color: var(--ChineseBlack);
 				color: var(--LanguidLavender);
 				padding: 3px 10px;
 				font-size: 0.9em;
 				border: 1px solid currentColor;
 				border-radius: 6px;
+				cursor: pointer;
+			}
+			input[type="button"]:hover {
+				background-color: var(--RiverStyx);
+			}
+			input[type="button"]:active {
+				background-color: var(--Woodsmoke);
 			}
 			textarea {
-				width: 70%;
+				width: stretch;
 				height: 500px;
 				background-color: var(--ChineseBlack);
 				color: var(--LanguidLavender);
+				resize: none;
 			}
 			.mainDiv {
-				width: 100%;
-				height: 100%;
+				width: 100vw;
+				height: 100vh;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				padding: 20px;
+			}
+			li {
+				margin-bottom: 8px;
+			}
+			div svg {
+				width: 35px;
+				height: auto;
+				fill: var(--LanguidLavender);
+			}
+			.f { display: flex; }
+			.fc { flex-direction: column; }
+			.falc { align-items: center; }
+			.fjc { justify-content: center; }
+			.g10 { gap: 10px; }
+			.grid {
+				display: grid;
+				grid-template-columns: 1fr 115px 1fr;
+				gap: 10px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="mainDiv">
 			<h1>Discord Timestamp CNE Schedule</h1>
-			<textarea id="schedule" placeholder="Input schedule here..."></textarea>
+			<div class="grid" style="width:80%">
+				<div class="f fc falc fjc">
+					<h3>Input Schedule</h3>
+					<textarea id="source" placeholder="Input schedule here..."></textarea>
+				</div>
+				<div class="f fc falc fjc">
+					<input type="button" id="timestamp" onclick="timestamp()" value="Timestamp">
+					<div>&nbsp;</div>
+					<hr style="width:100%">
+					<div>&nbsp;</div>
+					<input type="button" id="copyResult" onclick="copyResult()" value="Copy Result">
+				</div>
+				<div class="f fc falc fjc">
+					<h3>Output Result</h3>
+					<textarea id="result" placeholder="Output will appear here..."></textarea>
+				</div>
+			</div>
 			<div>&nbsp;</div>
-			<input type="button" id="timestamp" onclick="timestamp()" value="Timestamp the Schedule">
+			<div class="f fc" style="width:fit-content">
+				<h3>Features:</h3>
+				<ul>
+					<li>Detects time ranges and replaces them with Discord timestamps.</li>
+					<li>Detects date lines and bolds them.</li>
+					<li>Wraps URLs in angle brackets to stop Discord embedding them.</li>
+				</ul>
+			</div>
 
-			<script src="scripts/schedule.js?v=1.001"></script>
+			<script src="scripts/schedule.js?v=1.002"></script>
 		</div>
 	</body>
 </html>
