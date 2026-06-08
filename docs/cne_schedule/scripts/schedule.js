@@ -1,9 +1,11 @@
-const v = 1.000; // prettier-ignore
+const v = 1.001; // prettier-ignore
 const monthMap = {
 	January: 0, February: 1, March: 2, April: 3,
 	May: 4, June: 5, July: 6, August: 7,
 	September: 8, October: 9, November: 10, December: 11,
 }; // prettier-ignore
+const timeRangeRegex =
+	/(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/gi;
 
 function timestamp() {
 	const txt = document.getElementById("schedule");
@@ -16,17 +18,18 @@ function convertScheduleToDiscordTimestamps(scheduleText) {
 	let cleaned = scheduleText
 		.split("\n")
 		.map((line) => line.trim())
-		.map((line) => line.replace(/\s+/g, " ")) // Replace multiple spaces with single space
 		.join("\n");
 
 	const lines = cleaned.split("\n");
-	let currentDate = null;
 	const result = [];
+	let currentDate = null;
+	let currentYear = new Date().getFullYear();
+	let previousMonthNum = null;
 
 	for (let line of lines) {
-		// Check if line is a date header (e.g., "Tuesday, June 9th")
+		// Check if line is a date header (e.g., "Tuesday, June 9th").
 		const dateMatch = line.match(
-			/^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?/i,
+			/^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s*(\w+)\s*(\d{1,2})\s*(st|nd|rd|th)?/i,
 		);
 
 		if (dateMatch) {
@@ -34,54 +37,63 @@ function convertScheduleToDiscordTimestamps(scheduleText) {
 				day: dateMatch[1],
 				month: dateMatch[2],
 				date: dateMatch[3],
+				suffix: dateMatch[4] || "",
 			};
-			if (!line.startsWith("*")) line = `**${line}**`; // Make date headers bold
+
+			// Detect year rollover: December -> January
+			const currentMonthNum = monthMap[currentDate.month];
+			if (
+				previousMonthNum !== null &&
+				previousMonthNum === 11 &&
+				currentMonthNum === 0
+			)
+				currentYear++;
+			previousMonthNum = currentMonthNum;
+			// Rebuild the line to ensure consistent formatting and make it bold.
+			line = `**${currentDate.day}, ${currentDate.month} ${currentDate.date}${currentDate.suffix}**`;
 			result.push(line);
-		} else if (line.startsWith("•") && currentDate) {
-			// Parse event with time range
-			const eventMatch = line.match(
-				/^•\s+(.+?)\s*\|\s*(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i,
+			continue;
+		}
+
+		// Look for time-range patterns anywhere in the line and replace them in-place.
+		// Pattern: HH:MM AM/PM - HH:MM AM/PM (case-insensitive)
+		if (currentDate && timeRangeRegex.test(line)) {
+			timeRangeRegex.lastIndex = 0;
+
+			const replaced = line.replace(
+				timeRangeRegex,
+				(match, sh, sm, sp, eh, em, ep) => {
+					const startHour = parseInt(sh, 10);
+					const startMin = parseInt(sm, 10);
+					const endHour = parseInt(eh, 10);
+					const endMin = parseInt(em, 10);
+					const startPeriod = sp.toUpperCase();
+					const endPeriod = ep.toUpperCase();
+
+					const startHour24 = convertTo24Hour(startHour, startPeriod);
+					const endHour24 = convertTo24Hour(endHour, endPeriod);
+
+					const startTS = timeToUnix(
+						currentDate.month,
+						parseInt(currentDate.date),
+						currentYear,
+						startHour24,
+						startMin,
+					);
+					const endTS = timeToUnix(
+						currentDate.month,
+						parseInt(currentDate.date),
+						currentYear,
+						endHour24,
+						endMin,
+					);
+
+					return `<t:${startTS}:t>-<t:${endTS}:t>`;
+				},
 			);
-
-			if (eventMatch) {
-				const eventName = eventMatch[1];
-				const startHour = parseInt(eventMatch[2]);
-				const startMin = parseInt(eventMatch[3]);
-				const startPeriod = eventMatch[4].toUpperCase();
-				const endHour = parseInt(eventMatch[5]);
-				const endMin = parseInt(eventMatch[6]);
-				const endPeriod = eventMatch[7].toUpperCase();
-
-				// Convert to 24-hour format
-				const startHour24 = convertTo24Hour(startHour, startPeriod);
-				const endHour24 = convertTo24Hour(endHour, endPeriod);
-
-				// Get Unix timestamps for Vancouver timezone
-				const year = new Date().getFullYear();
-				const startTS = timeToUnix(
-					currentDate.month,
-					parseInt(currentDate.date),
-					year,
-					startHour24,
-					startMin,
-				);
-				const endTS = timeToUnix(
-					currentDate.month,
-					parseInt(currentDate.date),
-					year,
-					endHour24,
-					endMin,
-				);
-
-				result.push(
-					`•    ${eventName} | <t:${startTS}:t>-<t:${endTS}:t>`,
-				);
-			} else
-				result.push(line);
-		} else
-			result.push(line);
+			result.push(replaced);
+		} else result.push(line);
 	}
-
 	return wrapUrls(result.join("\n"));
 }
 
