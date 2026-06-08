@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Discord Timestamp CNE Schedule</title>
+		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="../assets/css/colours.css">
+		<style>
+			body {
+				font-family: "OpenSansSemibold", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+				color: var(--LanguidLavender);
+				background-color: var(--Charade);
+			}
+			input[type="button"] {
+				background-color: var(--ChineseBlack);
+				color: var(--LanguidLavender);
+				padding: 3px 10px;
+				font-size: 0.9em;
+				border: 1px solid currentColor;
+				border-radius: 6px;
+			}
+			textarea {
+				width: 70%;
+				height: 500px;
+				background-color: var(--ChineseBlack);
+				color: var(--LanguidLavender);
+			}
+			.mainDiv {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mainDiv">
+			<h1>Discord Timestamp CNE Schedule</h1>
+			<textarea id="schedule" placeholder="Input schedule here..."></textarea>
+			<div>&nbsp;</div>
+			<input type="button" id="timestamp" onclick="timestamp()" value="Timestamp the Schedule">
+
+			<script src="scripts/schedule.js?v=1.000"></script>
+		</div>
+	</body>
+</html>
